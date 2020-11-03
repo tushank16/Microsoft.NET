@@ -6,24 +6,24 @@ using System.Threading.Tasks;
 
 namespace Day_14_Assignment
 {
-    public delegate void intDelegate<T>(T no);
+    public delegate int intDelegate<T>(T no);
 
     class Q4
     {
-        static void Square(int no)
+        static int Square(int no)
         {
-            Console.WriteLine("Square of {0} is: {1}", no, no*no);
+            return( no * no);
         }
-        static void Cube(int no)
+        static int Cube(int no)
         {
-            Console.WriteLine("Cube of {0} is: {1}", no, no * no * no);
+            return ( no * no * no);
         }
-        static void Factorial(int no)
+        static int Factorial(int no)
         {
             int fact = 1;
             for (int i = 2; i <= no; i++)
                 fact *= i;
-            Console.WriteLine("Factorial of {0} is: {1}", no, fact);
+            return(fact);
         }
         //Q4. Write a generic delegate which will point to method which will 
         //return square , cube ,and factorial of a number.
@@ -34,9 +34,9 @@ namespace Day_14_Assignment
             intDelegate<int> cube = new intDelegate<int>(Cube);
             intDelegate<int> factorial = new intDelegate<int>(Factorial);
 
-            square(5);
-            cube(5);
-            factorial(5);
+            Console.WriteLine(square(5));
+            Console.WriteLine(cube(5));
+            Console.WriteLine(factorial(5));
         }
     }
 }
